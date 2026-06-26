@@ -26,7 +26,7 @@ const projects = [
     title: 'CPCB – Central Pollution Control Board',
     description:
       'Contributed to a real-time environmental data monitoring system to ensure compliance with CPCB regulations for the central Govt. of India. Handled bug fixing, system enhancements, and feature improvements ensuring accurate regulatory reporting and system stability.',
-    tags: ['Python', 'REST APIs', 'PostgreSQL', 'Regulatory Tech', 'Monitoring'],
+    tags: ['Python', 'FastAPI', 'PostgreSQL', 'Regulatory Tech', 'Monitoring'],
     color: 'from-cyan-500/20 to-blue-500/10',
     border: 'hover:border-cyan-500/40',
     dot: 'bg-cyan-500',

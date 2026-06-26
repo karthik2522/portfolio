@@ -52,7 +52,7 @@ AI/ML: LLMs, RAG (Retrieval-Augmented Generation), Prompt Engineering
    Built interactive real-time industrial dashboards. Improved data monitoring accuracy by 90%.
 
 2. CPCB – Central Pollution Control Board
-   Stack: Python, REST APIs, PostgreSQL, Regulatory Compliance
+   Stack: Python, FastAPI, PostgreSQL, Regulatory Compliance
    Real-time environmental monitoring system for the Government of India ensuring CPCB compliance.
 
 3. Clinical Integration Platform (eClinicalWorks)
