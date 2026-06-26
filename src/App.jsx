@@ -8,6 +8,7 @@ import Certifications from './components/Certifications';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Chatbot from './components/Chatbot';
 import './index.css';
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
       <Education />
       <Contact />
       <Footer />
+      <Chatbot />
     </div>
   );
 }
