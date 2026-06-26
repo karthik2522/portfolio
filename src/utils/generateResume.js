@@ -75,9 +75,9 @@ export function generateResume() {
 
   // HEADER
   fill("#1e1b2e");
-  doc.rect(0, 0, PW, 100, "F");
+  doc.rect(0, 0, PW, 112, "F");
   fill("#7c3aed");
-  doc.rect(0, 0, 4, 100, "F");
+  doc.rect(0, 0, 4, 112, "F");
   doc.setFont("helvetica","bold");
   doc.setFontSize(22);
   txt("#ffffff");
@@ -85,19 +85,21 @@ export function generateResume() {
   doc.setFont("helvetica","normal");
   doc.setFontSize(9);
   txt("#a78bfa");
-  doc.text("Python Backend Developer  |  FastAPI  |  REST APIs  |  PostgreSQL  |  AWS", ML+8, 52);
+  doc.text("Python Backend Developer  |  FastAPI  |  LLM  | RAG | PostgreSQL ", ML+8, 52);
   doc.setFontSize(7.8);
   txt("#cbd5e1");
   doc.text("karthikkarthik2522@gmail.com   |   +91 7019047085   |   Bangalore, India", ML+8, 67);
   doc.text("github.com/karthik2522   |   linkedin.com/in/karthik-hudedamani-6316bb16b", ML+8, 81);
-  y = 116;
+  txt("#a78bfa");
+  doc.text("Portfolio: karthik2522.github.io/portfolio", ML+8, 95);
+  y = 128;
 
   // SUMMARY
   section("Summary");
   doc.setFont("helvetica","normal");
   doc.setFontSize(8.5);
   txt("#374151");
-  const sum = doc.splitTextToSize("Results-driven Software Engineer with 3+ years of experience in application development, bug fixing, and system enhancements across healthcare, industrial, and environmental compliance domains. Skilled in designing interfaces, developing real-time monitoring systems, and building interactive dashboards that improve data quality, system reliability, and operational efficiency.", usableW);
+  const sum = doc.splitTextToSize("Results-driven Software Engineer with 4+ years of experience in application development, bug fixing, and system enhancements across healthcare, industrial, and environmental compliance domains. Skilled in designing interfaces, developing real-time monitoring systems, and building interactive dashboards that improve data quality, system reliability, and operational efficiency.", usableW);
   need(sum.length*11+8);
   doc.text(sum, ML, y);
   y += sum.length*11+10;
@@ -174,25 +176,35 @@ export function generateResume() {
 
   // HACKATHON
   section("Hackathon Projects");
-  need(60);
+  need(70);
+  // Title + event badge on same line
   doc.setFont("helvetica","bold");
   doc.setFontSize(9.5);
   txt("#1e1b2e");
   doc.text("Employ Chain", ML, y);
+  const titleW = doc.getTextWidth("Employ Chain");
   doc.setFont("helvetica","normal");
   doc.setFontSize(8);
   txt("#d97706");
-  doc.text("⚡ HACK-A-SOL 2.0  |  devfolio.co/projects/employ-chain-d850", PW-MR, y, { align:"right" });
+  doc.text("[ HACK-A-SOL 2.0 ]", ML + titleW + 8, y);
   y += 12;
-  doc.setFont("helvetica","italic");
+  // Portfolio link
+  doc.setFont("helvetica","normal");
   doc.setFontSize(8);
   txt("#7c3aed");
+  doc.text("devfolio.co/projects/employ-chain-d850", ML + 8, y);
+  y += 12;
+  // Tags
+  doc.setFont("helvetica","italic");
+  doc.setFontSize(8);
+  txt("#6d28d9");
   doc.text("Blockchain  |  NodeJS  |  ReactJS  |  Web3  |  Smart Contracts  |  NFT  |  Solidity", ML+8, y);
   y += 12;
+  // Description
   doc.setFont("helvetica","normal");
   doc.setFontSize(8.5);
   txt("#374151");
-  const hackLines = doc.splitTextToSize("A Decentralized Employment & Verification System using Blockchain. Verifies criminal background, work history, and educational qualifications, and issues NFTs as Proof of Employment — reducing months of manual verification to just a few hours.", usableW-8);
+  const hackLines = doc.splitTextToSize("A Decentralized Employment & Verification System using Blockchain. Verifies criminal background, work history, and educational qualifications, and issues NFTs as Proof of Employment - reducing months of manual verification to just a few hours.", usableW-8);
   need(hackLines.length*11+4);
   doc.text(hackLines, ML+8, y);
   y += hackLines.length*11+10;

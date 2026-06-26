@@ -49,7 +49,7 @@ export default function About() {
                 className="absolute -bottom-4 -right-4 bg-[#1a1a2e] border border-purple-500/30 rounded-xl px-4 py-2 shadow-xl"
               >
                 <p className="text-xs text-slate-400">Experience</p>
-                <p className="text-lg font-bold text-purple-400">3+ Years</p>
+                <p className="text-lg font-bold text-purple-400">4+ Years</p>
               </motion.div>
             </div>
           </motion.div>
@@ -62,7 +62,7 @@ export default function About() {
             className="space-y-5"
           >
             <p className="text-slate-300 leading-relaxed text-base">
-              Results-driven Software Engineer with <span className="text-purple-400 font-semibold">3+ years of experience</span> in application
+              Results-driven Software Engineer with <span className="text-purple-400 font-semibold">4+ years of experience</span> in application
               development, bug fixing, and system enhancements across healthcare, industrial, and environmental compliance domains.
             </p>
             <p className="text-slate-400 leading-relaxed text-base">
