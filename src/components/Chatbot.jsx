@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiMessageSquare, FiX, FiSend } from 'react-icons/fi';
 import { RiRobot2Line } from 'react-icons/ri';
 
-// ── Groq / Llama-3 integration ────────────────────────────────────────────────
-const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY;
-const GROQ_MODEL   = 'llama-3.1-8b-instant'; // free open-source model via Groq
+// ── Groq / Llama-3 integration ─────────────────────────────────────────────────
+// API key lives ONLY in Vercel env vars (server-side). Never exposed in bundle.
+const AI_API_ENDPOINT = '/api/chat';
 
 const SYSTEM_PROMPT = `You are a smart, friendly AI assistant embedded in Karthik Hudedamani's personal portfolio website. Your job is to answer questions about Karthik accurately and helpfully. Always speak in third person about Karthik. Keep answers concise (3–6 sentences max) unless asked for detail. Use a professional yet warm tone.
 
@@ -178,7 +178,7 @@ function localFallback(input) {
   return "Hmm, I'm not sure about that! 🤔 Try asking about Karthik's **skills**, **experience**, **projects**, **education**, or **contact info**.";
 }
 
-// Call Groq API with Llama 3.1 (open-source)
+// Call the serverless proxy — the actual Groq API key never touches the browser
 async function askLLM(history, userMessage) {
   const messages = [
     { role: 'system', content: SYSTEM_PROMPT },
@@ -186,23 +186,16 @@ async function askLLM(history, userMessage) {
     { role: 'user', content: userMessage },
   ];
 
-  const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+  const res = await fetch(AI_API_ENDPOINT, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${GROQ_API_KEY}`,
-    },
-    body: JSON.stringify({
-      model: GROQ_MODEL,
-      messages,
-      max_tokens: 400,
-      temperature: 0.7,
-    }),
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ messages }),
   });
 
-  if (!res.ok) throw new Error(`Groq API error: ${res.status}`);
+  if (!res.ok) throw new Error(`Proxy error: ${res.status}`);
   const data = await res.json();
-  return data.choices?.[0]?.message?.content?.trim() || 'Sorry, I could not generate a response.';
+  if (data.error) throw new Error(data.error);
+  return data.reply;
 }
 
 // Parse a line into plain text / **bold** / [label](url) segments
@@ -247,7 +240,8 @@ function FormattedText({ text }) {
   );
 }
 
-const AI_ENABLED = Boolean(GROQ_API_KEY);
+// AI is always attempted; falls back to local KB on proxy failure
+const AI_ENABLED = true;
 
 export default function Chatbot() {
   const [open, setOpen] = useState(false);
