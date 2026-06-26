@@ -233,7 +233,7 @@ export function generateResume() {
     },
     {
       title: "CPCB – Central Pollution Control Board",
-      tags:  "Python  |  REST APIs  |  PostgreSQL  |  Regulatory Compliance  |  Monitoring",
+      tags:  "Python  |  FastAPI  |  PostgreSQL  |  Regulatory Compliance  |  Monitoring",
       desc:  "Contributed to a real-time environmental data monitoring system ensuring compliance with CPCB regulations for the Government of India. Delivered bug fixes, system enhancements, and new features guaranteeing accurate regulatory reporting.",
     },
     {
