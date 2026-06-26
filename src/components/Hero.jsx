@@ -73,7 +73,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-lg md:text-xl text-slate-400 mb-3 font-medium"
         >
-          Python Backend Developer &nbsp;|&nbsp; FastAPI &nbsp;|&nbsp; REST APIs &nbsp;|&nbsp; PostgreSQL &nbsp;|&nbsp; AWS
+          Python Backend Developer &nbsp;|&nbsp; FastAPI &nbsp;|&nbsp; LLM &nbsp;|&nbsp; RAG &nbsp;|&nbsp; PostgreSQL &nbsp;
         </motion.p>
 
         <motion.p
